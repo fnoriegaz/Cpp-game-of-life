@@ -7,10 +7,10 @@ This is a basic implementation to test C++ classes and bash scripting
 * To execute, type on a terminal:
   * ./run.sh $n1 $n2 $n3
   * @n1 is the x dimension of the seed
-  * @n2 is the x dimension of the seed
+  * @n2 is the y dimension of the seed
   * @n3 is the number of iterations of the game of life
 
-The output is a float type "".bin" file of size "n1*n2*n3"
+The output is a float type ".bin" file of size * n1 * x * n2* x * n3 *
 
 I you have Seismic Unix installed on your computer you can uncomment the last
 line inside "run.sh" to automatically plot the output with "xmovie" command.
