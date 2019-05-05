@@ -1,4 +1,6 @@
-#include "Cells.hpp"
+#include"Cells.hpp"
+#include<omp.h>
+
 
 Cells::Cells(long int cols, long int rows){
 
@@ -16,6 +18,8 @@ Cells::~Cells(){
 void Cells::rules(float *output, long int cols, long int rows){
 
   float neighbours=0;
+  omp_set_num_threads(omp_get_max_threads());
+  #pragma omp parallel for
   for(long int iy=1;iy<(rows-1);iy++){
     for(long int ix=1;ix<(cols-1);ix++){
 

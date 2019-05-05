@@ -2,6 +2,7 @@
 #include<fstream>
 #include<string.h>
 #include<stdlib.h>
+#include<omp.h>
 
 #include "Cells.hpp"
 
@@ -12,12 +13,12 @@ int main(int argc, char *argv[]){
   long int rows=atoi(argv[2]);
   long int nt=atoi(argv[3]);
   float  *output = new float[(long int)cols*rows*nt];
-
   std::ofstream fid;
-
   Cells myCells(cols,rows);
 
   //initialize seed
+  omp_set_num_threads(omp_get_max_threads());
+  #pragma omp parallel for
   for(int y=1;y<(rows-1);y++){
     for(int x=1;x<(cols-1);x++){
       if(x==y) myCells.data[x+y*cols]=1.0;
